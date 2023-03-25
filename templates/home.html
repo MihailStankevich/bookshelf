@@ -1,0 +1,41 @@
+{%extends 'main.html' %}
+
+
+{%block content%}
+    <div class="container">
+        <div class="books">
+            {% if books %}
+                {% for book in books %}
+                <div class="book">
+                    <a href="{% url 'book' book.id %}" class="author_links"><img src="{{book.avatar.url}}" alt="" class="book_cover""></a>
+                    <a href="{% url 'book' book.id %}" class="author_links"><h2>{{book.title}}</h2></a>
+                    {% for author in book.authors.all %}
+                    <h3><a href="{% url 'author' author.id %}" class="author_links">{{author}}</a></h3>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3>We don't have this book in our library</h3>
+            {% endif %}
+        </div>
+        <div class="button">
+            <a href="{% url 'all_books' %}"  class="l">See all books</a>
+        </div>
+        <hr>
+        <div class="authors">
+            {% if authors %}
+                {% for author in authors %}
+                <div class="author">
+                    <img src="{{author.image.url}}" alt="" class="author_image">
+                    <a href="{% url 'author' author.id %}" class="author_links"><h2>{{author.name}}</h2></a>
+                </div>
+                {% endfor %}
+            {% else %}
+                <h3>We don't have this author in our library</h3>
+            {% endif %}
+        </div>
+        <div class="button">
+            <a href="{% url 'all_authors' %}" class="l">See all authors</a>
+        </div>
+    </div>
+{%endblock content%}

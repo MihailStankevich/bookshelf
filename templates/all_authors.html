@@ -1,0 +1,15 @@
+{%extends 'main.html' %}
+
+
+{%block content%}
+<div class="container">
+    <div class="books">
+    {% for author in authors %}
+    <div class="author">
+        <a href="{% url 'author' author.id %}" class="author_links"><h2>{{author.name}}</h2></a>
+        <img src="{{author.image.url}}" alt="" class="author_image">
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{%endblock content%}

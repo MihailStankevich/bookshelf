@@ -1,0 +1,33 @@
+{%extends 'main.html' %}
+{% block content %}
+<form class="form" action="" method="POST">
+    {% csrf_token %}
+
+    <div class="form__group">
+      <label for="author_name">Enter an Author (if not 1 - separate with a comma)</label>
+      <input required type="text" value="{{book.author.name}}" name="author" list="topic-list"/>
+      <datalist id="author-list">
+        <select id="author_name">
+          {% for author in authors %}
+          <option value="{{author.name}}">{{author.name}}</option>
+          {% endfor %}
+        </select>
+      </datalist>
+    </div>
+
+    <div class="form__group">
+      <label for="book_title">Book Title</label>
+      {{form.title}}
+    </div>
+
+    <div class="form__group">
+      <label for="book_description">Book Description</label>
+      {{form.description}}
+    </div>
+
+    <div class="form__action">
+      <a class="btn btn--dark" href="{% url 'home' %}">Cancel</a>
+      <button class="btn btn--main" type="submit">Submit</button>
+    </div>
+  </form>
+{% endblock content %}
