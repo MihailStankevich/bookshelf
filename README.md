@@ -6,14 +6,14 @@ windows: py -m pip install --user virtualenv
 MacOs/Linux: python3 -m pip install --user virtualenv
 
 2 step. Create venv using
-windows: py -m venv env
+windows: py -m venv env   
 MacOs/Linux: python3 -m venv env
 
 3 Step. Activate venv
-windows: .\env\Scripts\activate
+windows: .\env\Scripts\activate   
 MacOs/Linux: source env/bin/activate
 
-4 Step. Clone GitHub repository: 
+4 Step. Clone GitHub repository: git clone "https://github.com/MihailStankevich/bookshelf.git"
 
 5 Step. Open project folder:  cd bookshelf
 
